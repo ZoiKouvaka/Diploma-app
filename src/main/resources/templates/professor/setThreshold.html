@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Register</title>
+</head>
+
+
+<body>
+
+<div class="container">
+<form 
+  action="#" 
+  th:action="@{/seeThresholdBestGrade(subjectId=${subjectId})}" th:object="${th}" method="post">
+  <h3>Set thresholds</h3>
+    <input type="number" th:field="*{th1}" placeholder="Threshold 1" /> <br/><br/>
+     <input type="number" th:field="*{th2}" placeholder="Threshold 2" /> <br/><br/>
+   	 <br/><br/>
+   	
+    
+    <button type="submit" class="btn btn-info col-2">Submit thresholds</button> 
+</form>
+</body>
+</html>

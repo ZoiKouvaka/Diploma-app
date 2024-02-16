@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>My Thesis</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>My Thesis</h3>
+	<hr>
+	
+	<a th:href="@{/professor/dashboard}"
+		class="btn btn-primary btn-sm mb-3">
+		Back to dashboard
+	</a>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Student name</th>
+				<th>Student surname</th>
+				<th>Subject</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="thesis : ${thesisList}">
+			
+				<td th:text="${thesis.student.name}" />	
+				<td th:text="${thesis.student.surname}" />	
+				<td th:text="${thesis.subject.title}" />	
+				
+				<td>
+					<!-- Add "see applicants" button/link -->			
+					<a th:href="@{/setGrades(thesisId=${thesis.id})}"
+					   class="btn btn-primary btn-sm "
+					   >SetGrades
+					</a>
+					
+					<!-- Add "see applicants" button/link -->			
+					<a th:href="@{/calculateTotalGrade(thesisId=${thesis.id})}"
+					   class="btn btn-primary btn-sm "
+					   >Calculate total grade
+					</a>
+					
+				</td>
+				
+				
+			</tr>
+		</tbody>		
+	</table>
+	<br><br>
+	 <span th:utext="${successMessage}"></span>
+</div>
+	
+</body>
+</html>

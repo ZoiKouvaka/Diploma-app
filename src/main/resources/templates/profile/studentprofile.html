@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Profile Setup</title>
+</head>
+
+
+<body>
+
+<div class="container">
+
+	<h2>Set up your profile</h2>
+
+  <form 
+  action="#" 
+  th:action="@{/save/studentprofile}" th:object="${student}" method="post">
+    <input type="text" th:field="*{name}" placeholder="Name" /> <br/><br/>
+     <input type="text" th:field="*{surname}" placeholder="Surname" /> <br/><br/>
+     <h9>Years of studies</h9> <br/><br/>
+     <input type="number" th:field="*{yearsofstudies}" placeholder="Years of Studies" /> <br/><br/>
+     <h9>AM</h9> <br/><br/>
+     <input type="number" th:field="*{AM}" placeholder="A.M." /> <br/><br/>
+     <h9>Current average grade</h9> <br/><br/>
+     <input type="number" th:field="*{currenAvgGrade}" placeholder="Current average grade" /> <br/><br/>
+     <h9>Number of Courses Remaining for Graduation</h9> <br/><br/>
+     <input type="number" th:field="*{numberRemainingCoursesForGrad}" placeholder="Number of Courses remaining for graduation" /> <br/><br/>
+    </select> <br/><br/>
+    
+    <button type="submit" class="btn btn-info col-2">Submit</button> 
+    
+    <a th:href="@{/student/dashboard}" class="btn btn-primary col-2">Back to Dashboard</a>
+    
+    <div th:if="${param.error}"><p>Registration Error.</p></div> <br/>
+    
+    <span th:utext="${successMessage}"></span>
+</form>
+</body>
+</html>

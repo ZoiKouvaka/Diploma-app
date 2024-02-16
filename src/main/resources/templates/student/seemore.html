@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>See more</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>More information on subject</h3>
+
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Title</th>
+				<th>Objectives</th>
+				<th>Supervisor name</th>
+				<th>Supervisor surname</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			
+				<td th:text="${subject.title}" />
+				<td th:text="${subject.objectives}" />	
+				<td th:text="${professor.name}"/>
+				<td th:text="${professor.surname}"/>
+				
+				
+				<td>
+					
+					<!-- Add "apply" button/link -->					
+					<a th:href="@{/apply(subjectId=${subject.id})}"
+					   class="btn btn-danger btn-sm">
+						Apply
+					</a>
+					
+				</td>
+		</tbody>		
+	</table>
+	<br> 
+		<a th:href="@{/student/dashboard}"
+		class="btn btn-primary btn-sm mb-3">
+		Back to dashboard
+	</a>
+
+</div>
+	
+</body>
+</html>

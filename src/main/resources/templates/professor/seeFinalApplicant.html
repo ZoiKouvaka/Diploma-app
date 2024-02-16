@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Applicants</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Applicants for the subject</h3>
+	<hr>
+
+	<a th:href="@{/professor/seeSubjects}" class="btn btn-primary btn-sm mb-3">Back to Subjects</a>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Student name</th>
+				<th>Student surname</th>
+				<th>AM</th>
+				<th>Years of studies</th>
+				<th>Avg grade</th>
+				<th>Courses-to-diploma</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			
+				<td th:text="${student.name}" />	
+				<td th:text="${student.surname}" />	
+				<td th:text="${student.AM}" />
+				<td th:text="${student.yearsofstudies}" />
+				<td th:text="${student.currenAvgGrade}" />
+				<td th:text="${student.numberRemainingCoursesForGrad}" />
+
+		</tbody>		
+	</table>
+	<a th:href="@{/assignThesis(subjectId=${subjectId},studentUsername=${student.username})}"
+	
+		class="btn btn-primary btn-sm "
+		onclick="if (!(confirm('Are you sure you want to assign thesis to the student ?Undo is not possible'))) return false">
+		Assign Thesis
+	</a>
+	
+	 
+</div>
+	
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Applications</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Applications by students</h3>
+	<hr>
+
+	
+	<a th:href="@{/professor/dashboard}"
+		class="btn btn-primary btn-sm mb-3">
+		Back to dashboard
+	</a>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Student name</th>
+				<th>Student surname</th>
+				<th>AM</th>
+				<th>Subject I am interested in</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="appl : ${applList}">
+			
+				<td th:text="${appl.student.name}" />	
+				<td th:text="${appl.student.surname}" />	
+				<td th:text="${appl.student.AM}" />
+				<td th:text="${appl.subject.title}" />	
+			
+			</tr>
+		</tbody>		
+	</table>
+	<a th:href="@{/seeRandom(subjectId=${subjectId})}"
+		class="btn btn-primary btn-sm ">
+		Choose randomly
+	</a>
+	<a th:href="@{/seeBestGrade(subjectId=${subjectId})}"
+		class="btn btn-primary btn-sm ">
+		Choose Best Average Grade student
+	</a>
+	<a th:href="@{/seeFewestCourses(subjectId=${subjectId})}"
+		class="btn btn-primary btn-sm ">
+		Choose Fewest-Courses-to-diploma student
+	</a>
+	<a th:href="@{/setThreshold(subjectId=${subjectId})}"
+		class="btn btn-primary btn-sm ">
+		Choose based on given threshold
+	</a>
+	<br></br>
+	 <span th:utext="${successMessage}"></span>
+</div>
+	
+</body>
+</html>

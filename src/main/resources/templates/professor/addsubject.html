@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>New subject</title>
+</head>
+
+
+<body>
+
+<div class="container">
+
+	<h2>Add a new subject: </h2>
+
+  <form 
+  action="#" 
+  th:action="@{/save/newSubject}" th:object="${newSubject}" method="post">
+    <input type="text" th:field="*{title}" placeholder="Title" /> <br/><br/>
+     <input type="text" th:field="*{Objectives}" placeholder="Objectives" /> <br/><br/>
+    </select> <br/><br/>
+    
+    <button type="submit" class="btn btn-info col-2">Add Subject</button> 
+    
+    <a th:href="@{/professor/dashboard}" class="btn btn-primary col-2">Back to Dashboard</a>
+    
+    <span th:utext="${successMessage}"></span>
+</form>
+</body>
+</html>
